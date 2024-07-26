@@ -21,8 +21,14 @@ import com.codedecode.demo.service.EmployeeServiceInterface;
 @RequestMapping("/code")
 public class EmployeeController {
 
-	@Autowired
-	private EmployeeServiceInterface employeeServiceInterface;
+	//@Autowired
+	//private EmployeeServiceInterface employeeServiceInterface;
+	private final EmployeeServiceInterface employeeServiceInterface;
+
+	public EmployeeController(EmployeeServiceInterface employeeServiceInterface) {
+		this.employeeServiceInterface = employeeServiceInterface;
+
+	}
 	
 	@PostMapping("/save")
 	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
